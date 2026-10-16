@@ -28,9 +28,10 @@
 
 - 加载验证：目标 Agent 装载后，用 tests/trigger-regression.md 的适用用例跑触发回归（每条 3 次取多数）。
 - 结构验证：name=目录名、description 长度、SKILL.md 行数、引用一层深，四项可用脚本静态检查。
-- 回流质量验证：tests/reflight-static-check.py 做静态校验——裁决词正则 `^(PASS|FAIL|INCONCLUSIVE)$` + 状态词枚举 + 复跑表存在性。
+- 回流质量验证：tests/reflight-static-check.py 做静态校验——裁决词正则 `^(PASS|FAIL|INCONCLUSIVE)$` + 状态词枚举 + 复跑表存在性 + 图边引用存在性（v0.4 第 4 检：[[条目名]] 必须命中全库条目标题）。
 
-## 4. 实测指标（v0.3，2026-10-16 发布版）
+## 4. 实测指标（v0.4，2026-10-16 更新）
 
 - pentest/SKILL.md：85 行（≤150 达标）；description 1007 字符（≤1024 达标）。
+- v0.4 变更面：shared/REFLIGHT.md（死锁条款 + 熵控五问 + 升级字段边化）、shared/tools/INDEX.md（查重链）、pentest/references/scope-hook-spec.md（规则族 2 循环检测）、tests/reflight-static-check.py（第 4 检）——均与 SKILL-DUO 源及 wtf 仓库字节同源（`diff -r` 零差异）。
 - 跨 Agent 通用性硬约束逐项复核：frontmatter 双字段、无专有语法、一层深引用、无人类向文件——均未回退。

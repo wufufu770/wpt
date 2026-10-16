@@ -42,6 +42,11 @@ wpt/
 - 同步校验方法：对两仓库 `shared/` 目录做 `diff -r`，应零差异；
 - 上游合并方向：SKILL-DUO 源项目（如仍在维护）→ 本仓库与 wtf 仓库。
 
+## 版本记录
+
+- **v0.3（2026-10-16）**：初始发布（cd6ffb7）——pentest skill 五阶段 + scope 四层纵深 + REFLIGHT 协议 + shared 层 20 条工具条目。
+- **v0.4（2026-10-16）**：Cairn/CTF-Agent 前沿设计借鉴（源自《reArtex 启发系列二》调研 5 条落点）——① scope-hook-spec.md 新增规则族 2「重复调用去重」循环检测（签名滑窗 12 条，≥3 warn / ≥5 break exit 2，借鉴 verialabs/ctf-agent loop_detect.py）；② shared/REFLIGHT.md §1 增死锁条款（同一假设连续 FAIL ≥3 禁止原路复跑）；③ §5 增熵控五问回流结构门槛 + INDEX 查重链；④ 「升级」字段边化（`[[条目名]]` 图边引用）；⑤ tests/reflight-static-check.py 增第 4 检（图边引用存在性）。shared/ 与 tests/ 与 wtf 仓库及 SKILL-DUO 源字节同源（`diff -r` 零差异）；13 个知识文件静态校验 0 违例；硬约束（SKILL.md ≤150 行、frontmatter 仅 name/description、纯 markdown 相对路径）不回退。
+
 ## 许可证
 
 License 占位（待定）：TBD。正式发布前需确定（候选：MIT / Apache-2.0 / CC-BY-4.0——含安全测试知识内容，建议与法务确认后再定）。
